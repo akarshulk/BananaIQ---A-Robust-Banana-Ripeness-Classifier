@@ -1,0 +1,11 @@
+# Core — keep versions pinned to avoid slow dependency resolution
+streamlit>=1.32,<2.0
+numpy>=1.24,<2.0
+Pillow>=10.0,<11.0
+
+# Option A (current) — full Keras/TF, slower cold start (~3–6s on first run)
+tensorflow>=2.15,<2.17
+
+# Option B (faster) — swap to tflite once you convert your model:
+# pip install tflite-runtime   # ~5x smaller, ~3x faster inference
+# Then in app.py replace load_model() with the TFLite interpreter (see README)
